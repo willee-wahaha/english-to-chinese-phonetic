@@ -27,7 +27,8 @@ except Exception as e:
 win.title('英文轉注音')
 win.resizable(False, False)
 
-h=350
+w = 600
+h = 350
 
 try:
     try:
@@ -39,25 +40,30 @@ try:
     except Exception as e2:
         NONE
     (w,h) = backtemp.size
-    h = int(600/w*h)
-    bc = ImageTk.PhotoImage(backtemp.resize((600,h)))
+    if(int(600/w*h) > 600):
+        w = int(600/h*w)
+        h = 600
+    else:
+        h = int(600/w*h)
+        w = 600
+    bc = ImageTk.PhotoImage(backtemp.resize((w,h)))
     panel = Label(win, image = bc)
     panel.place(x=0, y=0)
 except Exception as e:
     None
 
-geo = '600x' + str(h)
+geo = str(w) + 'x' + str(h)
 win.geometry(geo)
 
 fm = tk.Frame(win, bg='white', width=200, height=20)
-fm.place(x=350, y=h/4-10)
+fm.place(x=w-250, y=h/4-10)
 
 a =tk.StringVar(None, '')
 ent = tk.Entry(fm, width=200, justify='left', textvariable=a)
 ent.place(x=0, y=0)
 
 fmb = tk.Frame(win, bg='white', width=70, height=50)
-fmb.place(x=415, y=h/2-25)
+fmb.place(x=w-185, y=h/2-25)
 
 btnstr = tk.StringVar()
 btnstr.set('   轉換   ')
@@ -65,7 +71,7 @@ btn = tk.Button(fmb, bg='#CCCCCC', fg='black', textvariable=btnstr, font=('微�
 btn.place(x=0, y=0)
 
 fmo = tk.Frame(win, bg='white', width=200, height=20)
-fmo.place(x=350, y=h/4*3-10)
+fmo.place(x=w-250, y=h/4*3-10)
 
 b = tk.StringVar(None, ' ')
 out = tk.Entry(fmo, width=200, font=('微軟正黑體', 8), justify='left', textvariable=b)
