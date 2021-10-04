@@ -19,7 +19,6 @@ def change():
     b.set("".join(lista))
 
 win = tk.Tk()
-win.geometry('600x350')
 try:
     iconpic = 'icon.ico'
     win.iconbitmap(iconpic)
@@ -27,6 +26,8 @@ except Exception as e:
     None
 win.title('英文轉注音')
 win.resizable(False, False)
+
+h=350
 
 try:
     try:
