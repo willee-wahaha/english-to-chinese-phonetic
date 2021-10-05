@@ -56,7 +56,10 @@ geo = str(w) + 'x' + str(h)
 win.geometry(geo)
 
 fm = tk.Frame(win, bg='white', width=200, height=20)
-fm.place(x=w-250, y=h/4-10)
+if(h >= 408):
+    fm.place(x=w-250, y=h/2-112)
+else:
+    fm.place(x=w-250, y=h/4-10)
 
 a =tk.StringVar(None, '')
 ent = tk.Entry(fm, width=200, justify='left', textvariable=a)
@@ -71,7 +74,10 @@ btn = tk.Button(fmb, bg='#CCCCCC', fg='black', textvariable=btnstr, font=('微�
 btn.place(x=0, y=0)
 
 fmo = tk.Frame(win, bg='white', width=200, height=20)
-fmo.place(x=w-250, y=h/4*3-10)
+if(h >= 408):
+    fmo.place(x=w-250, y=h/2+92)
+else:
+    fmo.place(x=w-250, y=h/4*3-10)
 
 b = tk.StringVar(None, ' ')
 out = tk.Entry(fmo, width=200, font=('微軟正黑體', 8), justify='left', textvariable=b)
