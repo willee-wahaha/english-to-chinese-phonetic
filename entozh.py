@@ -57,16 +57,26 @@ win.geometry(geo)
 
 fm = tk.Frame(win, bg='white', width=200, height=20)
 if(h >= 408):
-    fm.place(x=w-250, y=h/2-112)
+    the_y = h/2-112
 else:
-    fm.place(x=w-250, y=h/4-10)
+    the_y = h/4-10
+
+if(w <= 380):
+    the_x = w/2-100
+else:
+    the_x = w-250
+fm.place(x=the_x, y=the_y)
 
 a =tk.StringVar(None, '')
 ent = tk.Entry(fm, width=200, justify='left', textvariable=a)
 ent.place(x=0, y=0)
 
 fmb = tk.Frame(win, bg='white', width=70, height=50)
-fmb.place(x=w-185, y=h/2-25)
+if(w <= 380):
+    the_x = w/2-35
+else:
+    the_x = w-185
+fmb.place(x=the_x, y=h/2-25)
 
 btnstr = tk.StringVar()
 btnstr.set('   轉換   ')
@@ -75,9 +85,15 @@ btn.place(x=0, y=0)
 
 fmo = tk.Frame(win, bg='white', width=200, height=20)
 if(h >= 408):
-    fmo.place(x=w-250, y=h/2+92)
+    the_y = h/2+92
 else:
-    fmo.place(x=w-250, y=h/4*3-10)
+    the_y = h/4*3-10
+
+if(w <= 380):
+    the_x = w/2-100
+else:
+    the_x = w-250
+fmo.place(x=the_x, y=the_y)
 
 b = tk.StringVar(None, ' ')
 out = tk.Entry(fmo, width=200, font=('微軟正黑體', 8), justify='left', textvariable=b)
